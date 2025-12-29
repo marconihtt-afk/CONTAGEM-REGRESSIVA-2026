@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contagem Regressiva 2026</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        #contador {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        #feliz {
+            font-size: 50px;
+            color: gold;
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contagem Regressiva</h1>
+
+    <img id="imagem" src="29ee15ec6c8e9d4aa3f3cdd83b972114.jpg" alt="Imagem antes">
+
+    <div id="contador">01:00</div>
+
+    <div id="feliz">🎆 Feliz ano novo! 🎆</div>
+
+    <script>
+        let tempo = 60;
+
+        const contador = document.getElementById("contador");
+        const imagem = document.getElementById("imagem");
+        const feliz = document.getElementById("feliz");
+
+        const intervalo = setInterval(() => {
+            let minutos = Math.floor(tempo / 60);
+            let segundos = tempo % 60;
+
+            contador.textContent =
+                String(minutos).padStart(2, '0') + ":" +
+                String(segundos).padStart(2, '0');
+
+            if (tempo <= 0) {
+                clearInterval(intervalo);
+                contador.style.display = "none";
+                imagem.src = "035d7658a5719f8c53f68254d074565e (1).jpg";
+                feliz.style.display = "block";
+            }
+
+            tempo--;
+        }, 1000);
+    </script>
+
+</body>
+</html>
